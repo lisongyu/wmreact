@@ -1,52 +1,63 @@
 import React, { Component } from 'react'
 
-// class ChildCpn extends Component {
 
-//   render() {
-//     return (
-//       <div>
-//         <h2>子组件展示数据:{this.props.childInfo}</h2>
-//       </div>
-//     )
-//   }
-// }
+// 创建 Context对象
+let UserContext = React.createContext({
+  nickname: "aaa",
+  level: -1
+})
 
-function ChildCpn(props) {
-  return (
-    <div>
-      <h2>子组件展示数据:{props.childInfo}</h2>
-    </div>
-  )
-
-}
-
-ChildCpn.defaultProps = {
-  childInfo: '我是默认值'
-}
-
-
-
-export default class App extends Component {
-  constructor() {
-    super();
-    console.log('执行了组件的constructor')
-    this.state = {
-      message: "你好啊，李银河",
-      childInfo: '我是父亲传来的'
-    }
-  }
+class ProfileHeader extends Component {
   render() {
-    console.log('执行了render')
-    let { childInfo } = this.state
+    console.log(this.context)
     return (
       <div>
-        <span>我是App组件</span>
-        <h2>{this.state.message}</h2>
-        <ChildCpn />
+
+        <h2>用户昵称:{this.context.nickname}</h2>
+        <h2>用户等级：{this.context.level}</h2>
       </div>
     )
   }
-  componentDidMount() {
-    console.log('执行了组件的didmount')
+}
+
+ProfileHeader.contextType = UserContext;
+
+
+function Profile(props) {
+
+  return (
+
+
+    <div>
+      <ProfileHeader />
+      <ul>
+        <li>设置1</li>
+      </ul>
+    </div>
+  )
+}
+
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      nickname: "kebo",
+      level: -1
+    }
+
+  }
+  render() {
+
+    return (
+      <div>
+        <UserContext.Provider value={this.state}>
+          <Profile />
+        </UserContext.Provider>
+
+      </div>
+    )
   }
 }
+
+
