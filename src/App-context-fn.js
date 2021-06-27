@@ -7,6 +7,10 @@ let UserContext = React.createContext({
   level: -1
 })
 
+let ThemeContext = React.createContext({
+  color:'blue'
+})
+
 function ProfileHeader(props) {
   return (
     <UserContext.Consumer>
@@ -16,6 +20,7 @@ function ProfileHeader(props) {
             <div>
               <h2>用户昵称:{value.nickname}</h2>
               <h2>用户等级：{value.level}</h2>
+              
             </div>
           )
         }
@@ -56,7 +61,9 @@ export default class App extends Component {
     return (
       <div>
         <UserContext.Provider value={this.state}>
+          <ThemeContext.Provider value={{color:"red"}}>
           <Profile />
+           </ThemeContext.Provider>
         </UserContext.Provider>
 
       </div>
