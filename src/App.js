@@ -1,43 +1,25 @@
-import React, { Component } from 'react'
+import React, { PureComponent, createRef } from 'react'
 
+export default class App extends PureComponent {
 
+  constructor(props) {
+    super(props);
+    this.titleRef = createRef()
+  }
+  componentDidMount() {
 
-function ChildCpn(props) {
-  return (
-    <div>
-      <h2>子组件展示数据:{props.childInfo}</h2>
-    </div>
-  )
-
-}
-
-ChildCpn.defaultProps = {
-  childInfo: '我是默认值'
-}
-
-
-
-export default class App extends Component {
-  constructor() {
-    super();
-    console.log('执行了组件的constructor')
-    this.state = {
-      message: "你好啊，李银河",
-      childInfo: '我是父亲传来的'
-    }
   }
   render() {
-    console.log('执行了render')
-    let { childInfo } = this.state
     return (
       <div>
-        <span>我是App组件</span>
-        <h2>{this.state.message}</h2>
-        <ChildCpn />
+        <h2 ref={this.titleRef}>Hello React</h2>
+        <button onClick={e => this.changeText()}>改变文本</button>
       </div>
     )
   }
-  componentDidMount() {
-    console.log('执行了组件的didmount')
+  changeText() {
+    // 1
+    // this.refs.titleRef.innerHTML = '我是'
+    this.titleRef.current.innerHTML = '哈哈'
   }
 }
