@@ -6,7 +6,7 @@ import App from './App';
 
 ReactDOM.render(
 
-    <App />
+  <App name="why1" />
   ,
   document.getElementById('root')
 );
