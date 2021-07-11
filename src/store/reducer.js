@@ -1,5 +1,7 @@
 const defaultState = {
-  counter:0
+  counter: 0,
+  banners: [],
+  recommends:[]
 }
 
 export default function reducer(state = defaultState, action) {
