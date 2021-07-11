@@ -1,18 +1,28 @@
-const redux = rquire('redux')
+const redux = require('redux')
 
 const initialState = {
   counter: 0
 }
 
 // reducer
-function reducer(state, action) {
-  
+function reducer(state=initialState, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return { ...state, counter: state.counter + 1 }
+    case "DECREMENT":
+      return { ...state, counter: state.counter - 1 }
+    
+    default:
+      return state
+    }
 }
 
+// store 创建的时候需要传入一个reducer
+const store = redux.createStore(reducer)
 
-// store
-const store = redux.createStore()
-
+store.subscribe(() => {
+  console.log('state发生了改改变')
+})
 
 // actions
 const action1 = { type: "INCREMENT" }
