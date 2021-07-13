@@ -14,7 +14,10 @@ export default function reducer(state = defaultState, action) {
       return { ...state, counter: state.counter + action.num }
       case "SUB_NUMBER":
       return { ...state, counter: state.counter - action.num }
-    
+      case "CHANGE_BANNERS":
+        return { ...state, banners: action.banners }
+        case "CHANGE_RECOMMEND":
+        return { ...state, recommends: action.recommends }
     
     default:
       return state
