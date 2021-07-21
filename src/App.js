@@ -1,43 +1,35 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import {renderRoutes} from 'react-router-config'
+// import Home from './pages/home'
+// import About from './pages/about'
+// import User from './pages/user'
+// import NoMatch from './pages/noMatch'
 
+import routes from './router/index';
 
-
-function ChildCpn(props) {
-  return (
-    <div>
-      <h2>子组件展示数据:{props.childInfo}</h2>
-    </div>
-  )
-
-}
-
-ChildCpn.defaultProps = {
-  childInfo: '我是默认值'
-}
-
-
-
-export default class App extends Component {
-  constructor() {
-    super();
-    console.log('执行了组件的constructor')
-    this.state = {
-      message: "你好啊，李银河",
-      childInfo: '我是父亲传来的'
-    }
-  }
+import {  Link,
+  withRouter
+} from 'react-router-dom'
+class App extends PureComponent {
   render() {
-    console.log('执行了render')
-    let { childInfo } = this.state
     return (
       <div>
-        <span>我是App组件</span>
-        <h2>{this.state.message}</h2>
-        <ChildCpn />
+
+        <Link to="/">首页</Link>
+        <Link to="/about">关于</Link>
+        {/* <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/:id' component={User} />
+          <Route component={NoMatch} />
+        </Switch> */}
+        {renderRoutes(routes)}
+
+
+
       </div>
     )
   }
-  componentDidMount() {
-    console.log('执行了组件的didmount')
-  }
 }
+
+export default withRouter(App)
