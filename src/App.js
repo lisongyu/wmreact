@@ -25,7 +25,12 @@ import React from 'react'
 // import UseMemoDemo from './hooks/useMemo/useMemo02';
 // useRef
 
-import UseRefDemo from './hooks/useRef/useRef01';
+// import UseRefDemo from './hooks/useRef/useRef01';
+
+// 自定义hook
+// import KnowLeftHook from './hooks/self/know'
+
+import CustomScrollPositionHook from './hooks/self/CustomScrollPositionHook'
 export default function App() {
 
   // const [show, setShow] = useState(true)
@@ -43,7 +48,10 @@ export default function App() {
       {/* <CountHome /> */}
       {/* <CallBackHook /> */}
       {/* <UseMemoDemo /> */}
-      <UseRefDemo />
+      {/* <UseRefDemo /> */}
+
+      {/* <KnowLeftHook /> */}
+      <CustomScrollPositionHook />
     </div>
   )
 }
