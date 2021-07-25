@@ -22,7 +22,10 @@ import React from 'react'
 
 // useMemo
 
-import UseMemoDemo from './hooks/useMemo/useMemo02';
+// import UseMemoDemo from './hooks/useMemo/useMemo02';
+// useRef
+
+import UseRefDemo from './hooks/useRef/useRef01';
 export default function App() {
 
   // const [show, setShow] = useState(true)
@@ -39,7 +42,8 @@ export default function App() {
       </UseContext.Provider> */}
       {/* <CountHome /> */}
       {/* <CallBackHook /> */}
-      <UseMemoDemo />
+      {/* <UseMemoDemo /> */}
+      <UseRefDemo />
     </div>
   )
 }
