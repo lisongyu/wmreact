@@ -12,10 +12,13 @@ import React from 'react'
 // import ContextHook from './hooks/useContext'
 
 
-import CountHome from './hooks/useReducer/home';
+// import CountHome from './hooks/useReducer/home';
 
 // export const UseContext = createContext()
 // export const ThemeContext = createContext()
+
+// useCallBack
+import CallBackHook from './hooks/useCallback/CallBackHook2';
 export default function App() {
 
   // const [show, setShow] = useState(true)
@@ -30,7 +33,8 @@ export default function App() {
           <ContextHook />
         </ThemeContext.Provider>
       </UseContext.Provider> */}
-      <CountHome />
+      {/* <CountHome /> */}
+      <CallBackHook />
 
     </div>
   )
