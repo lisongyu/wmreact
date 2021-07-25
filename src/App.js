@@ -18,7 +18,11 @@ import React from 'react'
 // export const ThemeContext = createContext()
 
 // useCallBack
-import CallBackHook from './hooks/useCallback/CallBackHook2';
+//import CallBackHook from './hooks/useCallback/CallBackHook2';
+
+// useMemo
+
+import UseMemoDemo from './hooks/useMemo/useMemo02';
 export default function App() {
 
   // const [show, setShow] = useState(true)
@@ -34,8 +38,8 @@ export default function App() {
         </ThemeContext.Provider>
       </UseContext.Provider> */}
       {/* <CountHome /> */}
-      <CallBackHook />
-
+      {/* <CallBackHook /> */}
+      <UseMemoDemo />
     </div>
   )
 }
